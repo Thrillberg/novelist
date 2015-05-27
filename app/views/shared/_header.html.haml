@@ -1,0 +1,10 @@
+%nav#topbar.row
+  .title-area
+    Novelist
+  .has-form
+    .row.collapse
+      .large-8.small-9.columns
+        = form_tag("/videos/search", method: "get") do 
+          .form-group
+            = text_field_tag :book_title, nil, :placeholder => "Search for books here", class: "form-control"
+            = button_tag "search", class: "btn btn-default"
