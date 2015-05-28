@@ -1,0 +1,11 @@
+%section.register_container
+  .row
+    .small-10.column.small-offset-1
+      = form_for(@user, layout: :horizontal, label_errors: true) do |f|
+        %header
+          %h4 Register
+        %fieldset
+          = f.text_field :email, label: "Email Address:"
+          = f.text_field :password
+          %fieldset
+            = f.submit "Sign Up"

@@ -20,6 +20,11 @@ body {
   background-color: #3CBCBC;
 }
 
+.p {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .background-image {
   background-image: url("background.jpg");
   background-size: 100%;
@@ -33,21 +38,26 @@ body {
   position: relative;
 }
 
+.background-image-header {
+  background-image: url("background.jpg");
+  background-color: #3CBCBC;
+  background-position: 200px;
+  height: 125px;
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
+  position: relative;
+}
+
 .site_title {
   position: absolute;
   top: 30%;
   left: 33%;
-  color: white;
-  background: rgba(60,188,188,0.8);
-  opacity: 06;
+  background: rgba(60,188,188,0.6);
   padding: 20px;
   border-radius: 5px;
-}
-
-.button {
-  position: absolute;
-  top: 5%;
-  right: 5%;
 }
 
 .register-button {
@@ -59,6 +69,7 @@ body {
 h1 {
   font-size: 100px;
   font-weight: bold;
+  opacity: 1;
 }
 
 h2 {
@@ -66,3 +77,49 @@ h2 {
   padding-top: 30px;
 }
 
+h3 {
+  font-weight: bold;
+}
+
+.title-area {
+  position: absolute;
+  top: 25px;
+  left: 40px;
+  background: rgba(60,188,188,0.8);
+  opacity: 0.9;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.has-form {
+  position: absolute;
+  float: right;
+}
+
+.profile-button {
+  position: absolute;
+  top: 5%;
+  right: 15%;
+  width: 140px;
+}
+
+.signout-button {
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  width: 140px;
+}
+
+.search-bar {
+  position: absolute;
+  top: 5%;
+  right: 35%;
+  width: 300px;
+}
+
+.search-button {
+  position: absolute;
+  top: 5%;
+  right: 24%;
+  width: 140px;
+}

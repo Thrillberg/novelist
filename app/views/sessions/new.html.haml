@@ -1,0 +1,24 @@
+%section.sign_in.container
+  .row
+    .p
+      Please sign in below.
+    .small-6
+      .row
+        .small-2.columns
+          - label_tag :email, class: "right inline"
+          Email
+        .small-10.columns
+          %input(type="text" name="email" id="email")
+
+    .small-6
+      .row
+        .small-2.columns
+          - label_tag :password, class: "right inline"
+          Password
+        .small-10.columns
+          %input(type="password" name="password" id="password")
+
+    .small-6
+      .row
+        .small-6.small-offset-2.columns
+          %input(type="submit" value="Login")

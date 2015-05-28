@@ -57,7 +57,7 @@ Rails.application.routes.draw do
   root 'pages#front'
   get '/home', to: 'books#index'
   resources :books, only: [:show]
-  resources :users, only: [:create]
+  resources :users, only: [:create, :show, :edit, :update]
 
   get '/register', to: 'users#new', as: 'register'
   get '/sign_in', to: 'sessions#new', as: 'sign_in'

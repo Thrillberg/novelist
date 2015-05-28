@@ -1,10 +1,19 @@
-%nav#topbar.row
-  .title-area
+.background-image-header
+
+.title-area
+  %h3
     Novelist
-  .has-form
-    .row.collapse
-      .large-8.small-9.columns
-        = form_tag("/videos/search", method: "get") do 
-          .form-group
-            = text_field_tag :book_title, nil, :placeholder => "Search for books here", class: "form-control"
-            = button_tag "search", class: "btn btn-default"
+
+.profile-button
+  = link_to "Your Profile", sign_out_path, class: 'button small radius'
+
+.signout-button
+  = link_to "Sign Out", sign_out_path, class: 'button alert small radius'
+
+.search-bar
+  = form_tag("/books/search", method: "get") do 
+    .form-group
+    = text_field_tag :book_title, nil, :placeholder => "Search by title or country", class: "form-control"
+
+.search-button
+  = button_tag "Search", class: "button small radius"
