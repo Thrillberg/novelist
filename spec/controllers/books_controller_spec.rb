@@ -24,6 +24,10 @@ describe BooksController do
       expect(assigns(:results)).to eq([tuscan_sun])
     end
 
-    it "redirects to sign in page for unauthenticated users"
+    it "redirects to sign in page for unauthenticated users" do
+      book = Fabricate(:book)
+      post :search, search_term: 'uscan'
+      expect(response).to redirect_to sign_in_path
+    end
   end
 end

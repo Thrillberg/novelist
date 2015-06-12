@@ -1,16 +1,17 @@
 !!! 5
 %html(lang="en-US")
   %head
+    = javascript_include_tag "vendor/modernizr"
     %title Novelist
     %meta(charset="UTF-8")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     = csrf_meta_tag
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
+    = stylesheet_link_tag "foundation-icons"
   %body
     %header
-    -#- if @current_user == true
-    = render 'shared/header'
-    %section.content.clearfix
+      - if @current_user
+        = render 'shared/header'
       = render 'shared/messages'
       = yield

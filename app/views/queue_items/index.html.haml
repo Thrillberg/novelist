@@ -1,0 +1,34 @@
+.row
+  .small-10.columns
+    %article
+      %header
+        %h3 My Queue
+      = form_tag update_queue_path do  
+        %table.table
+          %thead
+            %tr
+              %th(width="10%") List Order
+              %th(width="30%") Book Title
+              %th(width="20%") Rating
+              %th(width="15%") Country
+              %th(width="15%") Remove
+          %tbody
+            - @queue_items.each do |queue_item|
+              %tr
+                = hidden_field_tag "queue_items[][id]", queue_item.id
+                %td= text_field_tag "queue_items[][position]", queue_item.position
+                %td
+                  = link_to queue_item.book_title, queue_item.book
+                %td= select_tag "queue_items[][rating]", options_for_book_reviews(queue_item.rating), include_blank: true
+                %td
+                  = link_to queue_item.country_name, queue_item.country
+                %td
+                  = link_to queue_item, method: :delete do
+                    %i.fi-x-circle.size-24
+        - if @queue_items.empty?
+          .white
+            It looks like there's nothing here!
+        %p            
+        =submit_tag "Update Queue", class: 'button small custom'
+        
+

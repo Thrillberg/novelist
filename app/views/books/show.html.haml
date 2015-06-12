@@ -1,0 +1,37 @@
+.row
+  .small-4.columns
+    %img(src="#{@book.small_cover_url}")
+  .small-8.columns
+    %header
+      %h3= @book.title
+    %p= @book.description
+    = link_to " My Queue", queue_items_path(book_id: @book.id), method: :post, class: "button small custom fi-plus" unless current_user.queued_book?(@book)
+
+.row
+  .small-10.columns
+    = form_for [@book, Review.new] do |f|
+      %fieldset
+        .form_group
+          %label Rate this book
+          .row
+            .small-8.columns.wide
+              = f.select :rating, options_for_book_reviews
+        .form_group
+          %label Write Review
+          .row
+            .small-8.columns
+              = f.text_area :body, rows: 6, class: "form-control"
+      %fieldset.form-group.actions.clearfix
+        %input(type="submit" value="Submit" class="button small custom")
+          = link_to "Cancel", @video, class: "button small alert"
+    %header
+      %h3 User Reviews (#{@reviews.count})
+    %ul
+      - @reviews.each do |review|
+        %article.review
+          %li.row
+            .col-sm-2
+              %span Rating: #{review.rating} / 5
+              %p by <a href="">#{review.user.email}</a>
+            .col-sm-8
+              %p= review.body

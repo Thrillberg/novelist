@@ -1485,4 +1485,7 @@ $include-html-global-classes: $include-html-classes;
 // $include-table-visibility-classes: true;
 // $include-legacy-visibility-classes: true;
 
+$include-html-panel-classes: $include-html-classes !default;
+$panel-bg: scale-color(#298282, $lightness: -5%) !default;
+
 @import 'foundation';

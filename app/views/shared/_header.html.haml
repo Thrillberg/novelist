@@ -1,19 +1,17 @@
-.background-image-header
+#header
+%h2#title
+  - if current_user
+    = link_to "Novelist", home_path
+  - else
+    = link_to "Novelist", root_path
 
-.title-area
-  %h3
-    Novelist
+#header-buttons   
+  - if current_user
+    %ul
+      %li
+        = form_tag("/books/search", method: "post", :id => 's') do 
+          = text_field_tag :search_term, nil, :placeholder => "Search by title or country"
+          = button_tag " Search", class: "fi-eye button small radius custom"
 
-.profile-button
-  = link_to "Your Profile", sign_out_path, class: 'button small radius'
-
-.signout-button
-  = link_to "Sign Out", sign_out_path, class: 'button alert small radius'
-
-.search-bar
-  = form_tag("/books/search", method: "get") do 
-    .form-group
-    = text_field_tag :book_title, nil, :placeholder => "Search by title or country", class: "form-control"
-
-.search-button
-  = button_tag "Search", class: "button small radius"
+      %li= link_to " My Queue", my_queue_path, class: "fi-list button small radius custom"
+      %li= link_to " Sign Out", sign_out_path, method: :delete, class: 'fi-power button alert small radius'

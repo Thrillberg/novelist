@@ -1,4 +1,6 @@
 class CountriesController < ApplicationController
+  before_action :require_user
+
   def index
     @countries = Country.all
   end

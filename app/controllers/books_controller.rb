@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   before_action :require_user
 
   def index
-    @queue_items = current_user.queue_items
+    @countries = Country.all
   end
 
   def show
@@ -12,5 +12,9 @@ class BooksController < ApplicationController
   
   def search
     @results = Book.search(params[:search_term])
+    if []
+      flash[:error] = "Sorry, your search yielded no results!"
+      redirect_to :back
+    end
   end
 end

@@ -1,0 +1,11 @@
+%h3.country-name.country-page #{@country.name}
+
+= link_to " My Country Queue", queue_items_path(country_id: @country.id), method: :post, class: "button small custom fi-plus"
+%p
+- @country.books.each do |book|
+  .row.panel.radius
+    .medium-2.column
+      =link_to image_tag(book.small_cover_url, options={size: "120"}), book
+    .medium-5.column
+      %h6= book.title
+      %p= book.description
