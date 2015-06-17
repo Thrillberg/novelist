@@ -77,6 +77,20 @@ describe QueueItemsController do
 
       expect(QueueItem.count).to eq(3)
     end
+
+    it "only allows three or fewer items in the queue" do
+      set_current_user
+      book1 = Fabricate(:book)
+      book2 = Fabricate(:book)
+      book3 = Fabricate(:book)
+      book4 = Fabricate(:book)
+      post :create, book_id: book1.id
+      post :create, book_id: book2.id
+      post :create, book_id: book3.id
+      post :create, book_id: book4.id
+
+      expect(QueueItem.count).to eq(3)
+    end
   end
 
   describe "DELETE destroy" do
@@ -146,9 +160,6 @@ describe QueueItemsController do
         post :update_queue, queue_items: [{id: queue_item1.id, position: 3}, {id: queue_item2.id, position: 2}]
         expect(alice.queue_items.map(&:position)).to eq([1, 2])
       end
-
-      it "only allows three items in the queue"
-
     end
 
     context "with invalid inputs" do

@@ -3,8 +3,8 @@ class ReviewsController < ApplicationController
 
   def create
     @book = Book.find(params[:book_id])
-    review = @book.reviews.build(review_params.merge!(user: current_user))
-    if review.save
+    @review = @book.reviews.build(review_params.merge!(user: current_user))
+    if @review.save
       redirect_to @book
     else
       @reviews = @book.reviews.reload

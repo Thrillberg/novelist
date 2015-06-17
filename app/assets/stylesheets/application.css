@@ -22,6 +22,16 @@
   position: absolute;
 }
 
+.row.rating {
+  width: 200px;
+  margin-left: 15px;
+}
+
+.row.review {
+  width: 60%;
+  margin-left: 15px;
+}
+
 body {
   background-color: #3CBCBC;
 }
@@ -58,14 +68,12 @@ p {
 
 #header-buttons {
   position: absolute;
-  top: -30px;
-  right: 10px;
-  padding-top: 30px;
+  top: 0px;
+  right: 0px;
 }
 
 ul {
   display: table;
-  table-layout: fixed;
 }
 
 ul li {
@@ -91,6 +99,10 @@ ul li {
   display: inline-block;
 }
 
+.navbuttons {
+  margin: 30px;
+}
+
 h1 {
   font-size: 100px;
   font-weight: bold;
@@ -105,10 +117,9 @@ h2 {
 #title {
   background: rgba(60, 188, 188, 0.6);
   border-radius: 5px;
-  display: inline-block;
   margin: 30px;
   padding: 10px;
-  top: -3px;
+  top: 0px;
   position: absolute;
   float: left;
 }
@@ -119,11 +130,6 @@ a {
 
 a:hover {
   color: black;
-  text-decoration: underline;
-}
-
-.search {
-
 }
 
 .has-form {

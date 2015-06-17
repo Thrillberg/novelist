@@ -5,13 +5,15 @@
   - else
     = link_to "Novelist", root_path
 
-#header-buttons   
+#header-buttons  
   - if current_user
-    %ul
+    %ul.navbuttons
       %li
-        = form_tag("/books/search", method: "post", :id => 's') do 
-          = text_field_tag :search_term, nil, :placeholder => "Search by title or country"
-          = button_tag " Search", class: "fi-eye button small radius custom"
+        = form_tag("/books/search", method: "post", :id => 's') do
+          = text_field_tag :search_term, nil, :class => "inline", :placeholder => "Search by title or country"
+      %li
+        = button_tag " Search", class: "inline fi-eye button small radius custom"
 
       %li= link_to " My Queue", my_queue_path, class: "fi-list button small radius custom"
+
       %li= link_to " Sign Out", sign_out_path, method: :delete, class: 'fi-power button alert small radius'

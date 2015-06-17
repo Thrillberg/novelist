@@ -9,7 +9,6 @@
             %tr
               %th(width="10%") List Order
               %th(width="30%") Book Title
-              %th(width="20%") Rating
               %th(width="15%") Country
               %th(width="15%") Remove
           %tbody
@@ -19,7 +18,6 @@
                 %td= text_field_tag "queue_items[][position]", queue_item.position
                 %td
                   = link_to queue_item.book_title, queue_item.book
-                %td= select_tag "queue_items[][rating]", options_for_book_reviews(queue_item.rating), include_blank: true
                 %td
                   = link_to queue_item.country_name, queue_item.country
                 %td

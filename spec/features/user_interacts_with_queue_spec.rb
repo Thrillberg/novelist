@@ -44,7 +44,7 @@ feature "User interacts with the queue" do
   def add_book_to_queue(book)
     visit home_path
     find("a[href='/books/#{book.id}']").click
-    click_link "+ My Queue"
+    click_link("+ My Queue")
   end
 
   def set_book_position(book, position)

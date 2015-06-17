@@ -16,4 +16,8 @@ class ApplicationController < ActionController::Base
   def require_user
     redirect_to sign_in_path unless current_user
   end
+
+  def disable_nav
+    @disable_nav = true
+  end
 end

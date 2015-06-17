@@ -8,13 +8,14 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @reviews = @book.reviews
+    @review = Review.new
   end
   
   def search
     @results = Book.search(params[:search_term])
-    if []
+    if @results.empty?
       flash[:error] = "Sorry, your search yielded no results!"
-      redirect_to :back
+      redirect_to home_url
     end
   end
 end

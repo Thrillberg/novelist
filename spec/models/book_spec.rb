@@ -46,6 +46,20 @@ describe Book do
       tuscan_sun = Fabricate(:book, title: "Under the Tuscan Sun", description: "Italy", country: italy)
       expect(Book.search("")).to eq([])
     end
+
+    it "returns an array of all appropriate books for a partial match on country" do
+      st_judes = Fabricate(:book, title: "St. Jude's", description: "Tanzania", country: tanzania)
+      tuscan_sun = Fabricate(:book, title: "Under the Tuscan Sun", description: "Italy", country: italy)
+      angels_and_demons = Fabricate(:book, title: "Angels and Demons", description: "Italy", country: italy)
+      expect(Book.search("Ita")).to eq([angels_and_demons, tuscan_sun])
+    end
+
+    it "returns an array of all appropriate books for a case insensitive match on country" do
+      st_judes = Fabricate(:book, title: "St. Jude's", description: "Tanzania", country: tanzania)
+      tuscan_sun = Fabricate(:book, title: "Under the Tuscan Sun", description: "Italy", country: italy)
+      angels_and_demons = Fabricate(:book, title: "Angels and Demons", description: "Italy", country: italy)
+      expect(Book.search("iTAly")).to eq([angels_and_demons, tuscan_sun])
+    end
     
   end
 end
