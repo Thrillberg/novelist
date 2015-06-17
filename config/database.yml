@@ -13,3 +13,9 @@ test: &TEST
   pool: 5
   username: Eric
   password:
+
+production:
+  adapter: postgresql
+  database: novelist_production
+  pool: 5
+  timeout: 5000
