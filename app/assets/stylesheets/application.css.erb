@@ -42,7 +42,7 @@ p {
 }
 
 .background-image {
-  background-image: asset_url("background.jpg");
+  background-image: url(<%= asset_path "background.jpg" %>);
   background-size: 100%;
   background-color: #3CBCBC;
   height: 600px;
@@ -58,7 +58,7 @@ p {
   background-position: 5px;
   height: 125px;
   position: relative;
-  background-image: asset_url("background.jpg");
+  background-image: url(<%= asset_path "background.jpg" %>);
   -webkit-filter: blur(3px);
   -moz-filter: blur(3px);
   -o-filter: blur(3px);
