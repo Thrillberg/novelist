@@ -38,7 +38,9 @@ gem 'foundation-rails'
 gem 'faker'
 gem 'haml-rails'
 gem 'fabrication'
-gem 'bcrypt-ruby'
+gem 'bcrypt-ruby', '3.1.2'
+gem 'foundation_rails_helper'
+gem 'pg'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -50,9 +52,12 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'rspec-rails', '2.99'
+  gem 'pry'
 
 end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
 end

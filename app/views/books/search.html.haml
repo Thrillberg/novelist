@@ -1,0 +1,5 @@
+%article.book_country
+  - @results.each do |book|
+    .book.span2
+    = link_to book do
+      %img(src="#{book.small_cover_url}")

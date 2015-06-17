@@ -55,9 +55,21 @@ Rails.application.routes.draw do
   #   end
 
   root 'pages#front'
+  
   get '/home', to: 'books#index'
-  resources :books, only: [:show]
-  resources :users, only: [:create]
+  resources :books, only: [:show] do
+    collection do
+      post :search, to: "books#search"
+    end
+    resources :reviews, only: [:create]
+  end
+  resources :users, only: [:create, :show, :edit, :update]
+
+  resources :countries
+
+  get 'my_queue', to: 'queue_items#index'
+  resources :queue_items, only: [:create, :destroy]
+  post 'update_queue', to: 'queue_items#update_queue'
 
   get '/register', to: 'users#new', as: 'register'
   get '/sign_in', to: 'sessions#new', as: 'sign_in'

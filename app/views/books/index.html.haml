@@ -1,0 +1,7 @@
+- @countries.each do |country|
+  .country-name
+    %h3= link_to "#{country.name}", country_path(country)
+  .row.panel.radius
+    - country.recent_books.each do |book|
+      .book
+        =link_to image_tag(book.small_cover_url, options={size: "120"}), book

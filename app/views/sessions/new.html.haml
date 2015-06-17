@@ -1,0 +1,11 @@
+
+.country-name
+  %h3
+    Sign In
+%section.sign_in.container
+  .row.panel.radius
+    .small-4.column
+      = form_for(:session, url: login_path) do |f|
+        = f.email_field :email, id: "email", label: false, :placeholder => 'Please enter your email address'
+        = f.password_field :password, id: "password", label: false, :placeholder => 'Please enter your password'
+        = f.submit "Sign In", :class => 'small button custom radius'

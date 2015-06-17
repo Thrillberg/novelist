@@ -1,10 +1,19 @@
-%nav#topbar.row
-  .title-area
-    Novelist
-  .has-form
-    .row.collapse
-      .large-8.small-9.columns
-        = form_tag("/videos/search", method: "get") do 
-          .form-group
-            = text_field_tag :book_title, nil, :placeholder => "Search for books here", class: "form-control"
-            = button_tag "search", class: "btn btn-default"
+#header
+%h2#title
+  - if current_user
+    = link_to "Novelist", home_path
+  - else
+    = link_to "Novelist", root_path
+
+#header-buttons  
+  - if current_user
+    %ul.navbuttons
+      %li
+        = form_tag("/books/search", method: "post", :id => 's') do
+          = text_field_tag :search_term, nil, :class => "inline", :placeholder => "Search by title or country"
+      %li
+        = button_tag " Search", class: "inline fi-eye button small radius custom"
+
+      %li= link_to " My Queue", my_queue_path, class: "fi-list button small radius custom"
+
+      %li= link_to " Sign Out", sign_out_path, method: :delete, class: 'fi-power button alert small radius'

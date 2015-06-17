@@ -1,0 +1,36 @@
+.row.panel.radius
+  .small-4.columns
+    %img(src="#{@book.small_cover_url}")
+  .small-8.columns
+    %header
+      %h3= @book.title
+    %p= @book.description
+    = link_to " My Queue", queue_items_path(book_id: @book.id), method: :post, id: "+ My Queue", class: "button small custom fi-plus radius" unless current_user.queued_book?(@book)
+
+.row
+  - if @book.reviews.collect { |w| w.user_id }.include?(current_user.id) == false
+    = form_for [@book, @review] do |f|
+      - if @review.errors.any?
+        - @review.errors.full_messages.each do |msg|
+          - flash[:error] = msg
+      %fieldset
+        %label Rate this book
+        .row.rating
+          = f.select :rating, options_for_book_reviews, label: false
+        %label Write Review
+        .row.review
+          = f.text_area :body, rows: 6, placeholder: "Enter your review here.", label: false, class: "form-control"
+      %fieldset
+        %input(type="submit" value="Submit" id="Submit" class="button small custom radius")
+          = link_to "Cancel", @book, class: "button small alert radius"
+  - else
+    You have already left a review.     
+
+  %h4 User Reviews (#{@reviews.count})
+  %ul
+    - @reviews.each do |review|
+      %li.row.panel.radius
+        %p Rating: #{review.rating} / 5
+        %p by <a href="">#{review.user.email}</a>
+        %p= review.body
+      %p  

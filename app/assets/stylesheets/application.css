@@ -16,8 +16,29 @@
 
  */
 
+#title.site {
+  margin-top: -120px;
+  margin-left: -200px;
+  position: absolute;
+}
+
+.row.rating {
+  width: 200px;
+  margin-left: 15px;
+}
+
+.row.review {
+  width: 60%;
+  margin-left: 15px;
+}
+
 body {
   background-color: #3CBCBC;
+}
+
+p {
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .background-image {
@@ -33,32 +54,59 @@ body {
   position: relative;
 }
 
-.site_title {
-  position: absolute;
-  top: 30%;
-  left: 33%;
-  color: white;
-  background: rgba(60,188,188,0.8);
-  opacity: 06;
-  padding: 20px;
-  border-radius: 5px;
+#header {
+  background-position: 5px;
+  height: 125px;
+  position: relative;
+  background-image: url("background.jpg");
+  -webkit-filter: blur(3px);
+  -moz-filter: blur(3px);
+  -o-filter: blur(3px);
+  -ms-filter: blur(3px);
+  filter: blur(3px);
 }
 
-.button {
+#header-buttons {
   position: absolute;
-  top: 5%;
-  right: 5%;
+  top: 0px;
+  right: 0px;
 }
 
-.register-button {
+ul {
+  display: table;
+}
+
+ul li {
+  display: table-cell;
+  padding: 5px;
+}
+
+#s {
+  width: 200px;
+}
+
+#buttons {
+  position: relative;
+  float: right;
+  right: 50%;
+  top: -250px;
+}
+
+.buttons {
   position: absolute;
-  top: 5%;
-  right: 20%;
+  top: -300px;
+  right: -500px;
+  display: inline-block;
+}
+
+.navbuttons {
+  margin: 30px;
 }
 
 h1 {
   font-size: 100px;
   font-weight: bold;
+  opacity: 1;
 }
 
 h2 {
@@ -66,3 +114,86 @@ h2 {
   padding-top: 30px;
 }
 
+#title {
+  background: rgba(60, 188, 188, 0.6);
+  border-radius: 5px;
+  margin: 30px;
+  padding: 10px;
+  top: 0px;
+  position: absolute;
+  float: left;
+}
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: black;
+}
+
+.has-form {
+  position: relative;
+  width: 100%;
+}
+
+.row {
+  margin-top: 5px;
+  margin-left: 20px;
+  display: inline-block;
+}
+
+.country-name {
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  color: black;
+}
+
+.country-page{
+  display: inline-block;
+}
+
+.book {
+  padding: 10px;
+  display: inline-block;
+  border-width: 20px;
+  border-color: red; 
+}
+
+.wide {
+  width: 150px;
+}
+
+.button {
+  background-color: #3CBCBC;
+}
+
+.button.success {
+  background-color: #47DE47;
+}
+
+.button.custom {
+  background-color: #94E7E7;
+  color: black;
+}
+
+.button.custom:hover, .button.custom:focus {
+background-color: #018F8F;
+}
+
+.white {
+  color: white;
+  text-align: center;
+}
+
+.size-12 { font-size: 12px; }
+.size-14 { font-size: 14px; }
+.size-16 { font-size: 16px; }
+.size-18 { font-size: 18px; }
+.size-21 { font-size: 21px; }
+.size-24 { font-size: 24px; }
+.size-36 { font-size: 36px; }
+.size-48 { font-size: 48px; }
+.size-60 { font-size: 60px; }
+.size-72 { font-size: 72px; }
