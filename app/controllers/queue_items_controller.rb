@@ -12,7 +12,7 @@ class QueueItemsController < ApplicationController
       redirect_to my_queue_path
     elsif params[:country_id].present? && current_user.queue_items.count == 0
       country = Country.find(params[:country_id])
-      3.times { queue_random_book(country) }
+      queue_random_books(country)
       redirect_to my_queue_path
     else
       flash[:alert] = "Your queue is already full."
@@ -43,8 +43,11 @@ class QueueItemsController < ApplicationController
     QueueItem.create(book: book, user: current_user, position: new_queue_item_position) unless current_user_queued_book?(book)
   end
 
-  def queue_random_book(country)
-    QueueItem.create(book: country.books.shuffle.first, user: current_user, position: new_queue_item_position)
+  def queue_random_books(country)
+    random_books = country.books.shuffle.take(3)
+    random_books.each do |book|
+      QueueItem.create(book: book, user: current_user, position: new_queue_item_position)
+    end
   end
 
   def new_queue_item_position
