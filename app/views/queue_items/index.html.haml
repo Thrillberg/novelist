@@ -26,7 +26,8 @@
         - if @queue_items.empty?
           .white
             It looks like there's nothing here!
-        %p            
-        =submit_tag "Update Queue", class: 'button small custom'
+        - else
+          %p            
+          =submit_tag "Update Queue", class: 'button small custom'
         
 
