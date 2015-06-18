@@ -1,5 +1,4 @@
-%article.book_country
-  - @results.each do |book|
-    .book.span2
-    = link_to book do
-      %img(src="#{book.small_cover_url}")
+.row.panel.radius
+  - @results.shuffle.each do |book|
+    .book
+      =link_to image_tag(book.small_cover_url, options={size: "120"}), book
